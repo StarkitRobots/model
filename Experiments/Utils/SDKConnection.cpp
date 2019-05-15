@@ -15,11 +15,11 @@ SDKConnection::SDKConnection() : _robot(new CommandsStore, "local")
       throw std::runtime_error("SDKConnection no connection");
     }
 
-    _robot.loadEnvironment("/home/rhoban/Environments/RhobanServer/Mowgly");
+    _robot.loadEnvironment("/home/starkit/Environments/StarkitServer/Mowgly");
 
-    Rhoban::Motors* motors = _robot.getMotors();
+    Starkit::Motors* motors = _robot.getMotors();
     motors->start(100);
-    Rhoban::Sensors* sensors = _robot.getSensors();
+    Starkit::Sensors* sensors = _robot.getSensors();
     sensors->start(100);
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
   }
@@ -31,14 +31,14 @@ SDKConnection::SDKConnection() : _robot(new CommandsStore, "local")
 
 SDKConnection::~SDKConnection()
 {
-  Rhoban::Motors* motors = _robot.getMotors();
+  Starkit::Motors* motors = _robot.getMotors();
   motors->stop();
   std::this_thread::sleep_for(std::chrono::milliseconds(500));
 }
 
 void SDKConnection::setMotorAngles(const VectorLabel& outputs)
 {
-  Rhoban::Motors* motors = _robot.getMotors();
+  Starkit::Motors* motors = _robot.getMotors();
   motors->get("Pied G")->setAngle(outputs("output:left foot roll"));
   motors->get("Cheville G")->setAngle(outputs("output:left foot pitch"));
   motors->get("Genou G")->setAngle(outputs("output:left knee"));
@@ -55,7 +55,7 @@ void SDKConnection::setMotorAngles(const VectorLabel& outputs)
 
 void SDKConnection::getMotorAngles(VectorLabel& vect)
 {
-  Rhoban::Motors* motors = _robot.getMotors();
+  Starkit::Motors* motors = _robot.getMotors();
   vect.setOrAppend("motor:left foot roll", motors->get("Pied G")->getRelAngle());
   vect.setOrAppend("motor:left foot pitch", motors->get("Cheville G")->getRelAngle());
   vect.setOrAppend("motor:left knee", motors->get("Genou G")->getRelAngle());
@@ -72,7 +72,7 @@ void SDKConnection::getMotorAngles(VectorLabel& vect)
 
 void SDKConnection::getSensorValues(VectorLabel& vect)
 {
-  Rhoban::Sensors* sensors = _robot.getSensors();
+  Starkit::Sensors* sensors = _robot.getSensors();
   for (const auto& sensor : sensors->getSensors())
   {
     vect.setOrAppend("sensor:" + sensor.second->getName(), sensor.second->getValue());

@@ -4,7 +4,7 @@
 #include "Utils/PolySpline.hpp"
 #include "CartWalk/SigmabanLeg.h"
 
-namespace Rhoban
+namespace Starkit
 {
 class CartWalk
 {
@@ -67,6 +67,6 @@ public:
 protected:
   SigmabanLeg legModel;
 };
-}  // namespace Rhoban
+}  // namespace Starkit
 
 #endif  // _CART_WALK_H

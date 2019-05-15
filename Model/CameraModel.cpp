@@ -1,6 +1,6 @@
 #include "Model/CameraModel.hpp"
 
-#include <rhoban_utils/util.h>
+#include <starkit_utils/util.h>
 
 #include <opencv2/calib3d.hpp>
 #include <opencv2/imgproc.hpp>
@@ -104,19 +104,19 @@ double CameraModel::getFocalY() const
   return focalY;
 }
 
-rhoban_utils::Angle CameraModel::getFOVX() const
+starkit_utils::Angle CameraModel::getFOVX() const
 {
-  return rhoban_utils::Angle::fromXY(focalX, imgWidth / 2) * 2;
+  return starkit_utils::Angle::fromXY(focalX, imgWidth / 2) * 2;
 }
 
-rhoban_utils::Angle CameraModel::getFOVY() const
+starkit_utils::Angle CameraModel::getFOVY() const
 {
-  return rhoban_utils::Angle::fromXY(focalY, imgHeight / 2) * 2;
+  return starkit_utils::Angle::fromXY(focalY, imgHeight / 2) * 2;
 }
 
-rhoban_utils::Angle CameraModel::getFOVDiag() const
+starkit_utils::Angle CameraModel::getFOVDiag() const
 {
-  return rhoban_utils::Angle::fromXY(getFocalDist(), (imgWidth + imgHeight) / 2) * 2;
+  return starkit_utils::Angle::fromXY(getFocalDist(), (imgWidth + imgHeight) / 2) * 2;
 }
 
 void CameraModel::setImgWidth(int width)
@@ -260,14 +260,14 @@ cv::Point3f CameraModel::getViewVectorFromImg(const cv::Point2f& imgPos, bool in
 void CameraModel::fromJson(const Json::Value& v, const std::string& dir_name)
 {
   (void)dir_name;
-  rhoban_utils::tryRead(v, "img_width", &imgWidth);
-  rhoban_utils::tryRead(v, "img_height", &imgHeight);
-  rhoban_utils::tryRead(v, "focal_x", &focalX);
-  rhoban_utils::tryRead(v, "focal_y", &focalY);
-  rhoban_utils::tryRead(v, "center_x", &centerX);
-  rhoban_utils::tryRead(v, "center_y", &centerY);
-  rhoban_utils::tryReadEigen(v, "radial_coeffs", &radialCoeffs);
-  rhoban_utils::tryReadEigen(v, "tangential_coeffs", &tangentialCoeffs);
+  starkit_utils::tryRead(v, "img_width", &imgWidth);
+  starkit_utils::tryRead(v, "img_height", &imgHeight);
+  starkit_utils::tryRead(v, "focal_x", &focalX);
+  starkit_utils::tryRead(v, "focal_y", &focalY);
+  starkit_utils::tryRead(v, "center_x", &centerX);
+  starkit_utils::tryRead(v, "center_y", &centerY);
+  starkit_utils::tryReadEigen(v, "radial_coeffs", &radialCoeffs);
+  starkit_utils::tryReadEigen(v, "tangential_coeffs", &tangentialCoeffs);
 }
 
 Json::Value CameraModel::toJson() const
@@ -279,8 +279,8 @@ Json::Value CameraModel::toJson() const
   v["focal_y"] = focalY;
   v["center_x"] = centerX;
   v["center_y"] = centerY;
-  v["radial_coeffs"] = rhoban_utils::vector2Json(radialCoeffs);
-  v["tangential_coeffs"] = rhoban_utils::vector2Json(tangentialCoeffs);
+  v["radial_coeffs"] = starkit_utils::vector2Json(radialCoeffs);
+  v["tangential_coeffs"] = starkit_utils::vector2Json(tangentialCoeffs);
   return v;
 }
 std::string CameraModel::getClassName() const

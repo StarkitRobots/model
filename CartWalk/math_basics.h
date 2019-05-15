@@ -1,6 +1,6 @@
 /*****************************************************************************/
 /*! \file    math_basics.h
- *  \author  Rhoban Project
+ *  \author  Starkit Project
  *  \date    2011-02
  *  \brief   Basics resources for the math library
  *****************************************************************************/

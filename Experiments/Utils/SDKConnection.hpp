@@ -22,7 +22,7 @@ class SDKConnection
 public:
   /**
    * Initialize the connection
-   * with RhobanServer throught SDK
+   * with StarkitServer throught SDK
    * (Local robot)
    */
   SDKConnection();
@@ -60,7 +60,7 @@ private:
   /**
    * SDK robot instance
    */
-  Rhoban::Robot _robot;
+  Starkit::Robot _robot;
 };
 
 }  // namespace Leph

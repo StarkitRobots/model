@@ -1,11 +1,11 @@
 {
-    "name": "rhobanproject/model",
+    "name": "starkitproject/model",
     "deps": [
-        "rhobandeps/eigen", 
-        "rhobandeps/lwpr", 
-        "rhobandeps/libgp", 
-        "rhobandeps/libcmaes", 
-        "rhobandeps/rbdl"
+        "starkit/eigen", 
+        "starkit/lwpr", 
+        "starkit/libgp", 
+        "starkit/libcmaes", 
+        "starkit/rbdl"
     ],
     "includes": ["."],
     "links": "build/libLephCode.so",

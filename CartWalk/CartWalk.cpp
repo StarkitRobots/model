@@ -17,7 +17,7 @@
 #define CARTSMOOTHING 0.97
 #define CARTSMOOTH(oldV, newV) (((oldV)*CARTSMOOTHING) + ((newV) * (1 - CARTSMOOTHING)))
 
-namespace Rhoban
+namespace Starkit
 {
 /**
  * Vous pouvez écrire du code qui sera exécuté à
@@ -206,4 +206,4 @@ void CartWalk::tick(double elapsed)
   a_l_arm = -enabledRatio * step.getMod(t) * armsGain;
   a_r_arm = enabledRatio * step.getMod(t + 0.5) * armsGain;
 }
-}  // namespace Rhoban
+}  // namespace Starkit

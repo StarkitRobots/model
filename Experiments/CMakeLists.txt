@@ -1,26 +1,26 @@
 cmake_minimum_required(VERSION 2.8)
 project(ExperimentCartWalkGradientOptim)
 
-#Rhoban dependencies repositories paths for headers inclusion
-set(RHOBAN_MATH_DIRECTORY
-    "/home/rhoban/Math/" 
-    CACHE STRING "RhobanMath directory")
-set(RHOBAN_COMMON_DIRECTORY
-    "/home/rhoban/Common/" 
-    CACHE STRING "RhobanCommon directory")
-set(RHOBAN_UTILS_DIRECTORY
-    "/home/rhoban/Utils/" 
-    CACHE STRING "RhobanUtils directory")
+#Starkit dependencies repositories paths for headers inclusion
+set(STARKIT_MATH_DIRECTORY
+    "/home/starkit/Math/" 
+    CACHE STRING "StarkitMath directory")
+set(STARKIT_COMMON_DIRECTORY
+    "/home/starkit/Common/" 
+    CACHE STRING "StarkitCommon directory")
+set(STARKIT_UTILS_DIRECTORY
+    "/home/starkit/Utils/" 
+    CACHE STRING "StarkitUtils directory")
 
-#Rhoban C++ SDK directory path
-set(RHOBAN_SDK_DIRECTORY 
-    "/home/rhoban/Edu/sdk/cpp" 
-    CACHE STRING "RhobanSdk cpp directory")
+#Starkit C++ SDK directory path
+set(STARKIT_SDK_DIRECTORY 
+    "/home/starkit/Edu/sdk/cpp" 
+    CACHE STRING "StarkitSdk cpp directory")
 
 #Path to a SDK build directory (with SDK, Utils, Common and library binaries)
 set(SDK_BUILD_DIRECTORY 
-    "/home/rhoban/Edu/build" 
-    CACHE STRING "RhobanSdkBuild directory")
+    "/home/starkit/Edu/build" 
+    CACHE STRING "StarkitSdkBuild directory")
 
 #Thesis Code directory
 set(LEPH_CODE_DIRECTORY
@@ -29,17 +29,17 @@ set(LEPH_CODE_DIRECTORY
 
 #Eigen linear algebra library directory
 set(EIGEN_DIRECTORY
-    "/home/rhoban/Eigen"
+    "/home/starkit/Eigen"
     CACHE STRING "Eigen library directory")
 
 #RBDL library directory
 set(RBDL_DIRECTORY
-    "/home/rhoban/RBDL"
+    "/home/starkit/RBDL"
     CACHE STRING "RBDL library directory")
 
 #ZMQ communication library directory
 set(ZMQ_DIRECTORY
-    ${RHOBAN_UTILS_DIRECTORY}/zmq3.2
+    ${STARKIT_UTILS_DIRECTORY}/zmq3.2
     CACHE STRING "ZMQ library directory")
 
 #Enable C++17
@@ -47,11 +47,11 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
    
 # Header includes
 include_directories(
-    ${RHOBAN_MATH_DIRECTORY}
-    ${RHOBAN_COMMON_DIRECTORY}
-    ${RHOBAN_UTILS_DIRECTORY}
-    ${RHOBAN_SDK_DIRECTORY}
-    ${RHOBAN_SDK_DIRECTORY}/rhoban
+    ${STARKIT_MATH_DIRECTORY}
+    ${STARKIT_COMMON_DIRECTORY}
+    ${STARKIT_UTILS_DIRECTORY}
+    ${STARKIT_SDK_DIRECTORY}
+    ${STARKIT_SDK_DIRECTORY}/starkit
     ${SDK_BUILD_DIRECTORY}/common/
     ${LEPH_CODE_DIRECTORY}
     ${LEPH_CODE_DIRECTORY}/Experiments/Utils
@@ -77,7 +77,7 @@ link_directories(
 add_subdirectory(${LEPH_CODE_DIRECTORY} ${CMAKE_CURRENT_BINARY_DIR}/LephCode)
 
 #
-# TinyXml in RhobanUtils.a have to be
+# TinyXml in StarkitUtils.a have to be
 # compiled with -DTIXML_USE_STL to be compatible with
 # libtinyxml in the system used by RBDL urdf parse (urdfdom)
 #
@@ -85,9 +85,9 @@ add_subdirectory(${LEPH_CODE_DIRECTORY} ${CMAKE_CURRENT_BINARY_DIR}/LephCode)
 #Lists of linked library
 set(LINKED_LIBRARIES
     LephCode
-    RhobanSDKMain 
-    RhobanCommon 
-    RhobanUtils
+    StarkitSDKMain 
+    StarkitCommon 
+    StarkitUtils
     pthread
     yaml-cpp
     TinyXml

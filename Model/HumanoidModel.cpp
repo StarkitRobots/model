@@ -1,7 +1,7 @@
 #include "Model/RBDLRootUpdate.h"
 #include "Model/HumanoidModel.hpp"
 
-#include <rhoban_utils/util.h>
+#include <starkit_utils/util.h>
 
 namespace Leph
 {

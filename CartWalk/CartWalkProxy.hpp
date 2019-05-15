@@ -9,7 +9,7 @@ namespace Leph
 /**
  * CartWalkProxy
  *
- * Clean API for Rhoban
+ * Clean API for Starkit
  * CartWalk motor primitive
  */
 class CartWalkProxy
@@ -73,7 +73,7 @@ private:
   /**
    * Wrapped CartWalk
    */
-  Rhoban::CartWalk _walk;
+  Starkit::CartWalk _walk;
 
   /**
    * Last computed Outputs

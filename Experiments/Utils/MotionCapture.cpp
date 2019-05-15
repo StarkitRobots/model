@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include "MotionCapture.hpp"
 
-namespace Rhoban
+namespace Starkit
 {
 MotionCapture::MotionCapture()
   : _captureStream("tcp://192.168.16.100:3232")
@@ -353,4 +353,4 @@ void MotionCapture::mobileAverage(CapturePosition& state, double x, double y, do
   state.roll = angleWeightedMean(coefPow, state.roll, (1.0 - alpha) * coef, roll);
 }
 
-}  // namespace Rhoban
+}  // namespace Starkit

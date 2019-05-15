@@ -1,9 +1,9 @@
-#ifndef RHOBAN_MOTIONCAPTURE_HPP
-#define RHOBAN_MOTIONCAPTURE_HPP
+#ifndef STARKIT_MOTIONCAPTURE_HPP
+#define STARKIT_MOTIONCAPTURE_HPP
 
 #include <string>
 
-namespace Rhoban
+namespace Starkit
 {
 /**
  * MotionCapture
@@ -135,6 +135,6 @@ private:
                      unsigned int countInvalid, double alpha);
 };
 
-}  // namespace Rhoban
+}  // namespace Starkit
 
 #endif

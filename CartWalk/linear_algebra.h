@@ -1,6 +1,6 @@
 /*****************************************************************************/
 /*! \file    linear_algebra.h
- *  \author  Rhoban Project
+ *  \author  Starkit Project
  *  \date    2010-09
  *  \brief   Personal Linear Algebra Library
  *****************************************************************************/

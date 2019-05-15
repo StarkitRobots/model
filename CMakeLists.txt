@@ -23,7 +23,7 @@ set(CATKIN_DEPENDENCIES
   libgp
   libcmaes
   rbdl_urdfreader
-  rhoban_utils
+  starkit_utils
   )
 
 if (BUILD_LEPH_CODE_VIEWER OR BUILD_ROBOCUP_VIEWER)
@@ -53,18 +53,18 @@ set(LEPHCODE_INCLUDE_DIRECTORIES ${LEPHCODE_INCLUDE_DIRECTORIES} ${CMAKE_CURRENT
 #OpenMP flags for LibCMAES
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp" )
 
-#Include RhAL (Rhoban Abstraction Layer Library) if found
+#Include RhAL (Starkit Abstraction Layer Library) if found
 if (RhAL_FOUND)
     add_definitions(-DBUILD_RHAL_RHIO_BINDING)
     include_directories(${RhAL_INCLUDE_DIRS})
 endif (RhAL_FOUND)
 
-#Include RhIOClient (Rhoban Input Output Library) if found
+#Include RhIOClient (Starkit Input Output Library) if found
 if (RhIOClient_FOUND)
     include_directories(${RhIOClient_INCLUDE_DIRS})
 endif (RhIOClient_FOUND)
 
-#Include RhIOServer (Rhoban Input Output Library) if found
+#Include RhIOServer (Starkit Input Output Library) if found
 if (RhIOServer_FOUND)
     include_directories(${RhIOServer_INCLUDE_DIRS})
 endif (RhIOServer_FOUND)

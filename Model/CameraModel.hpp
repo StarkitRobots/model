@@ -2,8 +2,8 @@
 
 #include "Model/CameraModel.hpp"
 
-#include <rhoban_utils/angle.h>
-#include <rhoban_utils/serialization/json_serializable.h>
+#include <starkit_utils/angle.h>
+#include <starkit_utils/serialization/json_serializable.h>
 
 #include <Eigen/Core>
 #include <opencv2/core.hpp>
@@ -35,7 +35,7 @@ namespace Leph
 /// - Position of the object in the camera referential
 /// - x and y matches the axes of the camera
 /// - z points toward direction of the camera
-class CameraModel : public rhoban_utils::JsonSerializable
+class CameraModel : public starkit_utils::JsonSerializable
 {
 public:
   /// Initial content does not allow to compute any transformation since it is
@@ -57,13 +57,13 @@ public:
   double getFocalY() const;
 
   /// Return an approximate of the field of view width
-  rhoban_utils::Angle getFOVX() const;
+  starkit_utils::Angle getFOVX() const;
 
   /// Return an approximate of the field of view height
-  rhoban_utils::Angle getFOVY() const;
+  starkit_utils::Angle getFOVY() const;
 
   /// Return an approximate of the diagonal field of view
-  rhoban_utils::Angle getFOVDiag() const;
+  starkit_utils::Angle getFOVDiag() const;
 
   /// Set image width [px]
   void setImgWidth(int width);

@@ -152,7 +152,7 @@ int main()
   log.mergeUnion(walk.buildOutputs());
 
   // Init Motion Capture
-  Rhoban::MotionCapture motionCapture;
+  Starkit::MotionCapture motionCapture;
   motionCapture.setCaptureStream("tcp://192.168.16.10:3232");
   motionCapture.averageCoefPos = 0.5;
   motionCapture.maxInvalidTick = 5;
